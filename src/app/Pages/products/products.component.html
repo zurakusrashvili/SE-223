@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="height d-flex justify-content-center align-items-center col-md-4" *ngFor="let product of products">
+    
+            <div class="card p-3">
+                
+                <div class="d-flex justify-content-between align-items-center ">
+                    <div class="mt-2">
+                        <h4 class="text-uppercase">{{product.productName}}</h4>
+                        <div class="mt-5">
+                            <h5 class="text-uppercase mb-0">{{product.productMatt}}</h5>
+                            <h1 class="main-heading mt-0">{{product.productCategory}}</h1>
+                            <div class="d-flex flex-row user-ratings">
+                                <div class="ratings">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                </div>
+                                <h6 class="text-muted ml-1">{{product.productRate}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{{product.productImg}}" width="200">
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
+                    <span>Available colors</span>
+                    <div class="colors">
+                        <span *ngFor="let item of product.productColors" [ngStyle]="{'background-color': item}">
+
+                        </span>
+                    </div>
+                    
+                </div>
+                
+                
+                <p>A great option weather you are at office or at home. </p>
+                
+                <button class="btn btn-danger" [routerLink]="['/products/details']" [queryParams]="{ id: product.productId }"routerLinkActive="router-link-active">See Details</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
